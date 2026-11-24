@@ -1,0 +1,2628 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Navnirman Realty · Architectural Evolution: From Plotted Land to Completed Residence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* =====================================================================
+   BESPOKE LUXURY ARCHITECTURAL DESIGN SYSTEM
+   ===================================================================== */
+:root{
+  --bg: #07090A;
+  --surface: #0E1214;
+  --surface-card: #13191B;
+  --surface-card-hover: #182023;
+  --surface-elevated: #1D2528;
+  --ink: #F7F9F8;
+  --ink-secondary: #C5CECC;
+  --muted: #82918E;
+  --line: rgba(255,255,255,0.08);
+  --line-subtle: rgba(255,255,255,0.04);
+  --line-gold: rgba(212,175,55,0.32);
+  --gold: #D4AF37;
+  --gold-light: #F4E2B2;
+  --gold-dark: #A6801C;
+  --gold-glow: rgba(212,175,55,0.28);
+  --accent: #D4AF37;
+  --accent-gold: #F4E2B2;
+  --accent-glow: rgba(212,175,55,0.32);
+  --emerald: #34D399;
+  --emerald-tint: rgba(52,211,153,0.12);
+  
+  /* Typography Hierarchy */
+  --f-display: "Cormorant Garamond", Georgia, serif;
+  --f-body: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --f-mono: "Space Mono", ui-monospace, Menlo, monospace;
+  --f-num: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  font-variant-numeric:lining-nums tabular-nums;
+  font-feature-settings:"lnum" 1, "tnum" 1;
+}
+
+/* Numerals styled with crisp baseline-aligned tabular figures */
+.num, .num-title, .stats b, .pprice, .big, .mrow b, .tl time, .upd time,
+.sx-btn-title, .split-col-title, .split-col-tag, output, .leg b,
+.pfacts b, .prow span, .pfacts small, .pill, .hero-quote-author{
+  font-family:var(--f-num) !important;
+  font-variant-numeric:lining-nums tabular-nums !important;
+  font-feature-settings:"lnum" 1, "tnum" 1 !important;
+  font-weight:700;
+  letter-spacing:-0.01em;
+}
+
+h1,h2,h3,h4{
+  font-family:var(--f-display);
+  margin:0;
+  font-weight:600;
+  letter-spacing:-0.01em;
+  line-height:1.15;
+}
+h2{
+  font-size:clamp(32px,3.8vw,48px);
+}
+p{margin:0}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.wrap{
+  max-width:1280px;
+  margin-inline:auto;
+  padding-left:max(24px,env(safe-area-inset-left,0px));
+  padding-right:max(24px,env(safe-area-inset-right,0px));
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--f-mono);
+  font-size:11.5px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:12px;
+}
+.eyebrow::before{
+  content:"";
+  display:inline-block;
+  width:24px;
+  height:1px;
+  background:var(--gold);
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  border-radius:6px;
+  padding:14px 28px;
+  font-family:var(--f-body);
+  font-weight:600;
+  font-size:14px;
+  letter-spacing:0.04em;
+  text-decoration:none;
+  transition:all 0.25s cubic-bezier(0.2,0.8,0.2,1);
+}
+.btn-primary{
+  background:linear-gradient(135deg,#DFBD69 0%,#B8860B 100%);
+  color:#0B0E0F;
+  border:1px solid rgba(255,255,255,0.25);
+  box-shadow:0 8px 24px -6px var(--gold-glow);
+}
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px -4px rgba(212,175,55,0.45);
+  filter:brightness(1.08);
+}
+.btn-ghost{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,0.03);
+  color:var(--ink);
+  backdrop-filter:blur(8px);
+}
+.btn-ghost:hover{
+  background:rgba(255,255,255,0.08);
+  border-color:var(--gold);
+  color:#FFFFFF;
+  transform:translateY(-2px);
+}
+
+/* =====================================================================
+   TOP NAVIGATION
+   ===================================================================== */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:70;
+  background:rgba(7,9,10,0.88);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+}
+.nav .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding-block:16px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-decoration:none;
+}
+.brand-mark{
+  width:38px;
+  height:38px;
+  border:1px solid var(--line-gold);
+  border-radius:6px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,rgba(212,175,55,0.15) 0%,rgba(10,14,16,0.8) 100%);
+  box-shadow:0 4px 14px rgba(0,0,0,0.4);
+}
+.brand-mark svg{width:20px;height:20px;stroke:var(--gold)}
+.brand-titles{
+  display:flex;
+  flex-direction:column;
+}
+.brand-name{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:20px;
+  letter-spacing:0.04em;
+  color:#FFFFFF;
+  line-height:1.1;
+}
+.brand-sub{
+  font-family:var(--f-mono);
+  font-size:10px;
+  letter-spacing:0.16em;
+  color:var(--gold);
+  text-transform:uppercase;
+}
+.nav ul{
+  display:flex;
+  gap:32px;
+  list-style:none;
+  margin:0;
+  padding:0;
+  font-size:14.5px;
+  font-weight:500;
+}
+.nav ul a{
+  text-decoration:none;
+  color:var(--ink-secondary);
+  transition:color 0.2s ease;
+  position:relative;
+  padding-block:4px;
+}
+.nav ul a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:0%;
+  height:1px;
+  background:var(--gold);
+  transition:width 0.25s ease;
+}
+.nav ul a:hover{
+  color:#FFFFFF;
+}
+.nav ul a:hover::after{
+  width:100%;
+}
+.nav .btn{
+  padding:10px 20px;
+  font-size:13px;
+}
+
+/* =====================================================================
+   HERO SECTION: 6-SECOND EXPANSIVE CINEMATIC VIDEO (ZERO SCROLLBARS)
+   ===================================================================== */
+.hero-section{
+  position:relative;
+  width:100%;
+  max-width:100vw;
+  height:clamp(680px, calc(100vh - 71px), 920px);
+  overflow:hidden !important;
+  background:#040607;
+}
+
+/* Completely remove all scrollbars from Hero Section and all descendants */
+.hero-section,
+.hero-section *,
+.hero-quote-card,
+.sx-stage-bar{
+  scrollbar-width:none !important;
+  -ms-overflow-style:none !important;
+}
+.hero-section::-webkit-scrollbar,
+.hero-section *::-webkit-scrollbar,
+.hero-quote-card::-webkit-scrollbar,
+.sx-stage-bar::-webkit-scrollbar{
+  display:none !important;
+  width:0 !important;
+  height:0 !important;
+}
+
+.sx-video-stage{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:#040607;
+}
+.hero-video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+  transform:scale(1.02);
+}
+
+/* Subtle Vignette Frame */
+.sx-vignette{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  pointer-events:none;
+  background:radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.05) 0%, rgba(4,6,7,0.3) 75%, rgba(4,6,7,0.7) 100%);
+}
+
+/* =====================================================================
+   INTERACTIVE ARCHITECTURAL BRAND QUOTE CARD (Left Side of Hero)
+   ===================================================================== */
+.hero-quote-card{
+  position:absolute;
+  top:48%;
+  left:max(28px, calc((100% - 1280px) / 2));
+  transform:translateY(-55%);
+  z-index:20;
+  width:min(440px, 42vw);
+  background:rgba(8, 12, 14, 0.78);
+  border:1px solid var(--line-gold);
+  border-radius:16px;
+  padding:26px 30px;
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  box-shadow:0 20px 50px rgba(0,0,0,0.65), 0 0 20px rgba(212,175,55,0.12);
+  transition:all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  overflow:hidden !important;
+}
+.hero-quote-card:hover{
+  border-color:var(--gold);
+  box-shadow:0 24px 60px rgba(0,0,0,0.75), 0 0 26px rgba(212,175,55,0.22);
+  background:rgba(8, 12, 14, 0.86);
+}
+.hero-quote-eyebrow{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--f-mono);
+  font-size:11px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:12px;
+}
+.hero-quote-eyebrow::before{
+  content:"";
+  display:inline-block;
+  width:18px;
+  height:1px;
+  background:var(--gold);
+}
+.hero-quote-text{
+  font-family:var(--f-display);
+  font-style:italic;
+  font-size:clamp(19px, 1.65vw, 24px);
+  font-weight:500;
+  line-height:1.45;
+  color:#FFFFFF;
+  margin-bottom:14px;
+  overflow:hidden !important;
+}
+.hero-quote-author{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-top:12px;
+  border-top:1px solid var(--line-subtle);
+  font-family:var(--f-num);
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  color:var(--gold-light);
+  text-transform:uppercase;
+}
+
+/* =====================================================================
+   BOTTOM 4-STAGE INTERACTIVE BAR (Directly from Reference Image)
+   ===================================================================== */
+.sx-stage-bar{
+  position:absolute;
+  bottom:24px;
+  left:max(20px,calc((100% - 1280px) / 2));
+  right:max(20px,calc((100% - 1280px) / 2));
+  z-index:25;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:rgba(10,14,16,0.85);
+  border:1px solid var(--line);
+  border-radius:14px;
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  box-shadow:0 16px 40px -10px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.03);
+  overflow:hidden !important;
+}
+
+.sx-stage-btn{
+  position:relative;
+  background:transparent;
+  border:none;
+  padding:16px 14px 18px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  color:var(--muted);
+  cursor:pointer;
+  transition:all 0.25s cubic-bezier(0.2,0.8,0.2,1);
+  overflow:visible;
+}
+.sx-stage-btn:not(:last-child){
+  border-right:1px solid rgba(255,255,255,0.08);
+}
+
+/* Gold Circle Chevron on Divider */
+.sx-stage-btn:not(:last-child)::after{
+  content:">";
+  position:absolute;
+  right:-13px;
+  top:50%;
+  transform:translateY(-50%);
+  width:26px;
+  height:26px;
+  background:#0B0F11;
+  border:1.5px solid var(--gold);
+  color:var(--gold-light);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-family:var(--f-num);
+  font-weight:700;
+  font-size:12px;
+  line-height:1;
+  z-index:6;
+  box-shadow:0 0 12px rgba(212,175,55,0.4);
+  pointer-events:none;
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+.sx-stage-btn:hover:not(:last-child)::after{
+  transform:translateY(-50%) scale(1.15);
+  box-shadow:0 0 18px rgba(212,175,55,0.75);
+}
+
+.sx-stage-btn:hover{
+  background:rgba(255,255,255,0.03);
+}
+.sx-stage-btn.active{
+  background:linear-gradient(180deg, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0.02) 100%);
+}
+
+.sx-btn-icon{
+  width:38px;
+  height:38px;
+  margin-bottom:6px;
+  display:grid;
+  place-items:center;
+  color:var(--muted);
+  transition:all 0.25s ease;
+}
+.sx-stage-btn.active .sx-btn-icon,
+.sx-stage-btn:hover .sx-btn-icon{
+  color:var(--gold-light);
+  transform:translateY(-2px);
+  filter:drop-shadow(0 0 10px rgba(212,175,55,0.6));
+}
+.sx-btn-icon svg{width:28px;height:28px;stroke-width:1.8}
+
+.sx-btn-title{
+  font-family:var(--f-num);
+  font-weight:700;
+  font-size:clamp(15px,1.25vw,17.5px);
+  color:#FFFFFF;
+  margin-bottom:2px;
+  transition:color 0.2s;
+}
+.sx-stage-btn.active .sx-btn-title{
+  color:var(--gold);
+}
+
+.sx-btn-sub{
+  font-family:var(--f-body);
+  font-size:clamp(12px,0.95vw,13.5px);
+  color:var(--muted);
+  font-weight:400;
+  letter-spacing:0.02em;
+  transition:color 0.2s;
+}
+.sx-stage-btn.active .sx-btn-sub{
+  color:var(--ink);
+}
+
+/* Dynamic Live Progress Bar under Each Stage Button */
+.sx-btn-bar{
+  width:64px;
+  height:3px;
+  border-radius:2px;
+  background:rgba(255,255,255,0.12);
+  margin-top:10px;
+  overflow:hidden;
+  position:relative;
+}
+.sx-btn-fill{
+  display:block;
+  height:100%;
+  width:0%;
+  border-radius:2px;
+  background:linear-gradient(90deg, #D4AF37, #F4E2B2);
+  box-shadow:0 0 8px rgba(212,175,55,0.8);
+  transition:width 0.1s linear;
+}
+
+/* =====================================================================
+   SECTION 2: DEDICATED 4-STAGE ARCHITECTURAL GALLERY
+   ===================================================================== */
+.split-hero-section{
+  padding-block:90px 70px;
+  background:linear-gradient(180deg,#07090A 0%,#0C1012 100%);
+  border-bottom:1px solid var(--line);
+}
+.sec-head{
+  max-width:72ch;
+  margin-bottom:44px;
+}
+.sec-head h2{
+  margin-block:10px 14px;
+}
+.sec-head p{
+  color:var(--ink-secondary);
+  font-size:17px;
+  line-height:1.7;
+}
+
+.split-banner-container{
+  position:relative;
+  border-radius:18px;
+  overflow:visible;
+  border:1px solid rgba(255,255,255,0.15);
+  box-shadow:0 30px 80px -20px rgba(0,0,0,0.85), 0 0 0 1px rgba(212,175,55,0.2);
+  background:#050708;
+}
+.split-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  position:relative;
+  min-height:540px;
+  border-radius:18px;
+  overflow:hidden;
+}
+.split-col{
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:36px 24px 32px;
+  cursor:pointer;
+  transition:all 0.4s cubic-bezier(0.2,0.8,0.2,1);
+}
+.split-col:not(:last-child){
+  border-right:1px solid rgba(255,255,255,0.15);
+}
+.split-col-bg{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center center;
+  transition:transform 0.6s cubic-bezier(0.2,0.8,0.2,1), filter 0.4s ease;
+  filter:brightness(0.78) contrast(1.08);
+}
+.split-col:hover .split-col-bg{
+  transform:scale(1.06);
+  filter:brightness(0.95) contrast(1.12);
+}
+.split-col-scrim{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(7,9,10,0.1) 0%, rgba(7,9,10,0.45) 45%, rgba(7,9,10,0.96) 100%);
+  z-index:2;
+}
+
+.split-col-content{
+  position:relative;
+  z-index:4;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.split-col-tag{
+  font-family:var(--f-num);
+  font-size:12px;
+  letter-spacing:0.12em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.split-col-icon{
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  background:rgba(14,18,20,0.85);
+  border:1px solid var(--line-gold);
+  display:grid;
+  place-items:center;
+  margin-bottom:12px;
+  color:#FFFFFF;
+  backdrop-filter:blur(12px);
+  box-shadow:0 8px 24px rgba(0,0,0,0.6);
+  transition:all 0.3s ease;
+}
+.split-col:hover .split-col-icon{
+  border-color:var(--gold);
+  color:var(--gold-light);
+  transform:translateY(-4px);
+  box-shadow:0 0 20px rgba(212,175,55,0.5);
+}
+.split-col-icon svg{width:26px;height:26px}
+
+.split-col-title{
+  font-family:var(--f-num);
+  font-weight:700;
+  font-size:clamp(19px,1.6vw,23px);
+  color:#FFFFFF;
+  margin-bottom:4px;
+  text-shadow:0 2px 14px rgba(0,0,0,0.9);
+}
+.split-col-sub{
+  font-family:var(--f-display);
+  font-style:italic;
+  font-size:clamp(14.5px,1.15vw,17px);
+  color:var(--gold-light);
+  margin-bottom:12px;
+}
+.split-col-bar{
+  width:46px;
+  height:2.5px;
+  border-radius:2px;
+  background:linear-gradient(90deg, #D4AF37, #F4E2B2);
+  box-shadow:0 0 10px rgba(212,175,55,0.7);
+  transition:width 0.3s ease;
+}
+.split-col:hover .split-col-bar{
+  width:78px;
+}
+
+/* Properly Displayed Divider Arrows */
+.split-divider-arrow{
+  position:absolute;
+  top:52%;
+  transform:translate(-50%, -50%);
+  width:36px;
+  height:36px;
+  background:#0B0F11;
+  border:1.5px solid var(--gold);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:var(--gold-light);
+  z-index:10;
+  box-shadow:0 0 14px rgba(212,175,55,0.6), 0 4px 12px rgba(0,0,0,0.8);
+  pointer-events:none;
+  transition:all 0.25s ease;
+}
+.split-divider-arrow svg{
+  width:18px;
+  height:18px;
+  stroke:var(--gold-light);
+  stroke-width:2.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  fill:none;
+}
+.split-banner-container:hover .split-divider-arrow{
+  box-shadow:0 0 20px rgba(212,175,55,0.85);
+  transform:translate(-50%, -50%) scale(1.08);
+}
+
+/* =====================================================================
+   SECTION 3: HERITAGE & ARCHITECTURAL STATS BAND
+   ===================================================================== */
+.band{
+  background:var(--surface);
+  border-block:1px solid var(--line);
+  padding-block:70px;
+}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:24px;
+}
+.stats-box{
+  background:var(--surface-card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:30px 26px;
+  position:relative;
+  overflow:hidden;
+  transition:transform 0.25s ease, border-color 0.25s ease;
+}
+.stats-box::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:36px;
+  height:2px;
+  background:var(--gold);
+}
+.stats-box:hover{
+  transform:translateY(-3px);
+  border-color:var(--line-gold);
+}
+.stats b{
+  display:block;
+  font-family:var(--f-num) !important;
+  font-size:clamp(34px,3.6vw,46px);
+  font-weight:800;
+  letter-spacing:-0.02em;
+  line-height:1.1;
+  color:var(--gold-light);
+  margin-bottom:8px;
+}
+.stats span{
+  color:var(--ink-secondary);
+  font-size:14.5px;
+  line-height:1.55;
+  display:block;
+}
+
+/* =====================================================================
+   SECTION 5: CURATED RESIDENTIAL PORTFOLIO (Interactive Scroll Animations)
+   ===================================================================== */
+#projects{
+  padding-block:96px;
+}
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:30px;
+}
+.chip{
+  border:1px solid var(--line);
+  background:var(--surface-card);
+  color:var(--ink-secondary);
+  border-radius:999px;
+  padding:8px 20px;
+  font-size:13.5px;
+  font-weight:600;
+  transition:all 0.2s ease;
+}
+.chip[aria-pressed="true"],.chip:hover{
+  background:rgba(212,175,55,0.15);
+  color:var(--gold-light);
+  border-color:var(--gold);
+}
+
+.pgrid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:28px;
+}
+
+/* Interactive Staggered Scroll Entrance for Portfolio Cards */
+.pcard{
+  background:var(--surface-card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  opacity:0;
+  transform:translateY(36px) scale(0.98);
+  transition:opacity 0.75s cubic-bezier(0.2,0.8,0.2,1),
+              transform 0.75s cubic-bezier(0.2,0.8,0.2,1),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+}
+.pcard.in-view{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+.pcard:hover{
+  transform:translateY(-8px) scale(1.015);
+  border-color:var(--gold);
+  box-shadow:0 24px 60px -10px rgba(0,0,0,0.8), 0 0 25px rgba(212,175,55,0.25);
+}
+.pimg{
+  position:relative;
+  height:220px;
+  overflow:hidden;
+}
+.pimg-bg{
+  width:100%;
+  height:100%;
+  background-size:cover;
+  background-position:center;
+  transition:transform 0.6s ease;
+}
+.pcard:hover .pimg-bg{
+  transform:scale(1.07);
+}
+.pill{
+  position:absolute;
+  left:16px;
+  top:16px;
+  border-radius:999px;
+  padding:4px 12px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  backdrop-filter:blur(8px);
+}
+.pill.ready{background:rgba(52,211,153,0.2);color:var(--emerald);border:1px solid var(--emerald)}
+.pill.uc{background:rgba(212,175,55,0.2);color:var(--gold-light);border:1px solid var(--gold)}
+.pill.new{background:rgba(96,165,250,0.2);color:#93C5FD;border:1px solid #60A5FA}
+
+.pbody{
+  padding:26px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  flex:1;
+}
+.pbody h3{
+  font-size:24px;
+  font-weight:600;
+  color:#FFFFFF;
+}
+.ploc{
+  color:var(--muted);
+  font-size:14px;
+  margin-top:-8px;
+}
+.pfacts{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  font-size:13.5px;
+  background:rgba(0,0,0,0.25);
+  padding:14px;
+  border-radius:8px;
+  border:1px solid var(--line-subtle);
+}
+.pfacts small{display:block;color:var(--muted);font-size:11.5px;font-family:var(--f-mono);text-transform:uppercase;margin-bottom:2px}
+.pfacts b{font-weight:600;color:var(--ink)}
+.pprice{
+  font-size:22px;
+  font-weight:800;
+  color:var(--gold-light);
+}
+
+/* Shared Telemetry Progress Bars (Zero Default Yellow at 0%) */
+.tr, .pbar{
+  height:7px;
+  border-radius:7px;
+  background:rgba(255,255,255,0.08);
+  overflow:hidden;
+  position:relative;
+}
+.tr i, .pbar i{
+  display:block;
+  height:100%;
+  width:0%;
+  opacity:0;
+  background:linear-gradient(90deg, #D4AF37, #F4E2B2);
+  border-radius:7px;
+  box-shadow:none;
+  transition:width 1.5s cubic-bezier(0.16,1,0.3,1), opacity 0.35s ease;
+}
+.tr i.active-fill, .pbar i.active-fill{
+  opacity:1;
+  box-shadow:0 0 10px rgba(212, 175, 55, 0.7);
+}
+.p-twr-row{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) 42px;
+  gap:12px;
+  align-items:center;
+  padding:6px 0;
+  margin-block:2px;
+}
+.p-twr-row span{
+  color:var(--muted);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.02em;
+  white-space:nowrap;
+}
+.p-twr-row b{
+  font-family:var(--f-num);
+  font-weight:700;
+  text-align:right;
+  color:var(--gold-light);
+  font-size:13px;
+  white-space:nowrap;
+}
+@keyframes barShimmer{
+  0%{background-position:100% 0%}
+  100%{background-position:-100% 0%}
+}
+.prow{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  font-size:13px;
+  color:var(--muted);
+}
+.prow .prow-val{
+  font-family:var(--f-num);
+  font-weight:700;
+  color:var(--gold-light);
+}
+.pfoot{
+  margin-top:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding-top:8px;
+  border-top:1px solid var(--line-subtle);
+}
+
+/* =====================================================================
+   SECTION 6: STRUCTURAL TELEMETRY (Interactive Live Cascades & Radar Pulse)
+   ===================================================================== */
+.two{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(0,0.95fr);
+  gap:clamp(24px,4vw,56px);
+}
+.panel{
+  background:var(--surface-card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:clamp(24px,3.5vw,34px);
+}
+.tl{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:0;
+}
+.tl li{
+  display:grid;
+  grid-template-columns:22px minmax(0,1fr) auto;
+  gap:16px;
+  align-items:start;
+  padding-block:16px;
+  border-top:1px solid var(--line-subtle);
+  opacity:0;
+  transform:translateX(-25px);
+  transition:all 0.6s cubic-bezier(0.2,0.8,0.2,1);
+}
+.tl li.in-view{
+  opacity:1;
+  transform:translateX(0);
+}
+.tl li:first-child{border-top:0}
+.dot{
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  border:1.5px solid var(--line);
+  margin-top:3px;
+  display:grid;
+  place-items:center;
+}
+.dot.done{background:var(--emerald);border-color:var(--emerald)}
+.dot.done::after{content:"";width:4px;height:8px;border:solid #061410;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+
+/* Live Pulsing Radar on Active Construction Milestone */
+.dot.now{
+  border-color:var(--gold);
+  background:var(--gold);
+  animation:livePulse 1.8s infinite;
+}
+@keyframes livePulse{
+  0%{box-shadow:0 0 0 0 rgba(212, 175, 55, 0.8);}
+  70%{box-shadow:0 0 0 12px rgba(212, 175, 55, 0);}
+  100%{box-shadow:0 0 0 0 rgba(212, 175, 55, 0);}
+}
+
+.tl b{display:block;font-weight:600;color:var(--ink);font-size:15px}
+.tl small{color:var(--muted);font-size:13px}
+.tl time{font:700 12px var(--f-num);color:var(--gold);white-space:nowrap;padding-top:3px}
+
+.upd{list-style:none;margin:0 0 24px;padding:0;display:grid;gap:12px}
+.upd li{
+  background:var(--surface-card);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:16px 20px;
+  font-size:14.5px;
+  opacity:0;
+  transform:translateY(20px);
+  transition:all 0.5s cubic-bezier(0.2,0.8,0.2,1);
+}
+.upd li.in-view{
+  opacity:1;
+  transform:translateY(0);
+}
+.upd time{
+  display:block;
+  font:700 12px var(--f-num);
+  color:var(--gold);
+  margin-bottom:4px;
+}
+
+.mrow{
+  display:grid;
+  grid-template-columns:95px minmax(0,1fr) 105px;
+  gap:12px;
+  align-items:center;
+  font-size:13.5px;
+  padding:6px 8px;
+  border-radius:6px;
+  cursor:pointer;
+  transition:background 0.2s ease;
+}
+.mrow:hover{
+  background:rgba(255,255,255,0.035);
+}
+.mrow b{font-family:var(--f-num);font-weight:700;text-align:right;color:var(--ink);white-space:nowrap}
+
+/* =====================================================================
+   SECTION 7: CAPITAL & MORTGAGE PLANNING (Interactive Animated Donut)
+   ===================================================================== */
+.calc{
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);
+  gap:clamp(24px,4vw,52px);
+  align-items:start;
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity 0.8s cubic-bezier(0.2,0.8,0.2,1), transform 0.8s cubic-bezier(0.2,0.8,0.2,1);
+}
+.calc.in-view{
+  opacity:1;
+  transform:translateY(0);
+}
+.ctrl{display:grid;gap:24px}
+.ctrl label{
+  display:grid;
+  gap:8px;
+  font-weight:600;
+  font-size:14.5px;
+}
+.ctrl label span{display:flex;justify-content:space-between;gap:10px}
+.ctrl label span output{font-family:var(--f-num);font-weight:700;color:var(--gold-light)}
+
+/* Custom Interactive Gold Range Sliders */
+input[type=range]{
+  width:100%;
+  accent-color:var(--gold);
+  height:24px;
+  cursor:pointer;
+}
+input[type=range]::-webkit-slider-thumb{
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background:#F4E2B2;
+  border:2px solid #D4AF37;
+  box-shadow:0 0 14px rgba(212, 175, 55, 0.8);
+  cursor:grab;
+  transition:transform 0.15s ease, box-shadow 0.15s ease;
+}
+input[type=range]::-webkit-slider-thumb:active{
+  transform:scale(1.25);
+  cursor:grabbing;
+  box-shadow:0 0 20px rgba(212, 175, 55, 1);
+}
+
+.res{
+  background:var(--surface-card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:clamp(24px,3vw,36px);
+  display:grid;
+  gap:24px;
+}
+.res .big{
+  font-family:var(--f-num) !important;
+  font-weight:800;
+  font-size:clamp(36px,4vw,50px);
+  letter-spacing:-0.02em;
+  color:var(--gold-light);
+  line-height:1;
+  transition:transform 0.2s ease;
+}
+.donutw{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.donutw svg{width:130px;height:130px;flex:none}
+.donutw circle{transition:stroke-dasharray 0.9s cubic-bezier(0.2,0.8,0.2,1)}
+.leg{display:grid;gap:10px;font-size:13.5px}
+.leg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:8px}
+.leg b{color:#FFFFFF;font-family:var(--f-num);font-weight:700;margin-left:6px}
+
+/* =====================================================================
+   SECTION: PRIVATE CONCIERGE & VIP SITE VISIT
+   ===================================================================== */
+#visit{
+  padding-block:110px 130px;
+  background:radial-gradient(ellipse 80% 50% at 50% 0%, rgba(212,175,55,0.06) 0%, transparent 70%), linear-gradient(180deg,#0A0D0F 0%,#050708 100%);
+  border-top:1px solid var(--line);
+  position:relative;
+}
+.visit{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);
+  gap:clamp(36px,5.5vw,76px);
+  align-items:center;
+}
+.visit-info{
+  display:flex;
+  flex-direction:column;
+}
+.visit-perks{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:24px;
+}
+.visit-perk{
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:12px 14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:13px;
+  color:var(--ink-secondary);
+}
+.visit-perk svg{
+  width:18px;
+  height:18px;
+  color:var(--gold);
+  flex-shrink:0;
+}
+#visit form{
+  display:grid;
+  gap:18px;
+  background:var(--surface-card);
+  border:1px solid var(--line-gold);
+  border-radius:18px;
+  padding:clamp(26px,3.8vw,38px);
+  box-shadow:0 24px 60px rgba(0,0,0,0.55), 0 0 20px rgba(212,175,55,0.08);
+}
+label.f{display:grid;gap:6px;font-weight:600;font-size:13.5px;color:var(--ink)}
+input[type=text],input[type=tel],input[type=date],select{
+  padding:13px 16px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:rgba(0,0,0,0.3);
+  color:#FFFFFF;
+  width:100%;
+  transition:border-color 0.2s;
+}
+input:focus,select:focus{
+  border-color:var(--gold);
+  outline:none;
+}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.msg{font-size:14px;min-height:1.4em}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+footer{
+  border-top:1px solid var(--line);
+  padding-block:48px 60px;
+  background:#050708;
+  color:var(--muted);
+  font-size:13.5px;
+}
+footer .wrap{
+  display:grid;
+  gap:12px;
+}
+
+/* =====================================================================
+   RESPONSIVE DESIGN SYSTEM (per ai-design-skills & mobile 1-screen rule)
+   - Desktop size elements remain 100% as they are
+   - Mobile fits entire Hero video animation + quote + 4-stage bar in 1 screen
+   - Tested for zero overflow at 390px, 375px, and 360px
+   ===================================================================== */
+html, body{
+  overflow-x:hidden;
+  max-width:100vw;
+  width:100%;
+}
+
+@media (max-width:1024px){
+  .pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .split-grid{grid-template-columns:repeat(2,1fr)}
+  .split-col:nth-child(2){border-right:none}
+  .split-col:nth-child(1),.split-col:nth-child(2){border-bottom:1px solid rgba(255,255,255,0.15)}
+  .split-divider-arrow{display:none}
+  .hero-quote-card{width:min(400px, 46vw)}
+}
+
+@media (max-width:900px){
+  .two,.calc,.visit{grid-template-columns:minmax(0,1fr)}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nav ul{display:none}
+  
+  /* Hero Section: Minimized to 60% Screen Height for Mobile Display Animation */
+  .hero-section{
+    height:60vh;
+    height:60dvh;
+    min-height:360px;
+    max-height:520px;
+    padding-bottom:0 !important;
+    position:relative;
+    overflow:hidden !important;
+  }
+  
+  /* Remove Quote On Animation For Mobile Screen Only */
+  .hero-quote-card{
+    display:none !important;
+  }
+
+  /* Compact 4-Stage Bar in One Screen */
+  .sx-stage-bar{
+    position:absolute;
+    bottom:10px;
+    left:10px;
+    right:10px;
+    z-index:25;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    background:rgba(10,14,16,0.90);
+    border:1px solid var(--line);
+    border-radius:12px;
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    overflow:hidden !important;
+  }
+  .sx-stage-btn{
+    padding:8px 2px 10px;
+    border-right:1px solid rgba(255,255,255,0.08);
+    border-bottom:none !important;
+  }
+  .sx-stage-btn:last-child{
+    border-right:none;
+  }
+  .sx-stage-btn::after{
+    display:none !important;
+  }
+  .sx-btn-icon{
+    width:22px;
+    height:22px;
+    margin-bottom:2px;
+  }
+  .sx-btn-icon svg{
+    width:15px;
+    height:15px;
+  }
+  .sx-btn-title{
+    font-size:clamp(9.5px, 2.5vw, 11px);
+    font-weight:600;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    letter-spacing:-0.01em;
+  }
+  .sx-btn-sub{
+    display:none !important;
+  }
+  .sx-btn-bar{
+    height:2.5px;
+    margin-top:4px;
+    width:80%;
+  }
+}
+
+@media (max-width:768px){
+  .wrap{
+    padding-inline:16px;
+  }
+  .nav .wrap{
+    height:56px;
+    padding-inline:16px;
+  }
+  .brand-mark{
+    width:32px;
+    height:32px;
+  }
+  .brand-name{
+    font-size:16px;
+    letter-spacing:0.12em;
+  }
+  .brand-sub{
+    display:none;
+  }
+  .nav .btn{
+    padding:7px 14px;
+    font-size:12.5px;
+  }
+
+  .sec-head{
+    margin-bottom:28px;
+  }
+  .sec-head h2{
+    font-size:clamp(23px, 5.5vw, 30px);
+    line-height:1.25;
+    text-wrap:balance;
+  }
+  .sec-head p{
+    font-size:13.5px;
+    line-height:1.5;
+    text-wrap:pretty;
+  }
+  .band{
+    padding-block:52px;
+  }
+  #projects{
+    padding-block:56px;
+  }
+  #visit{
+    padding-block:60px 80px;
+  }
+
+  /* Portfolio mobile enhancements */
+  .pgrid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+  .chips{
+    gap:8px;
+    overflow-x:auto;
+    flex-wrap:nowrap;
+    padding-bottom:6px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .chips::-webkit-scrollbar{
+    display:none;
+  }
+  .chip{
+    flex-shrink:0;
+    padding:7px 16px;
+    font-size:13px;
+  }
+  .pbody{
+    padding:20px;
+  }
+  .p-twr-row{
+    grid-template-columns:auto minmax(0,1fr) 38px;
+    gap:8px;
+  }
+  .p-twr-row span{
+    font-size:11px;
+  }
+  .p-twr-row b{
+    font-size:12px;
+  }
+
+  /* Structural Telemetry mobile enhancements */
+  .panel{
+    padding:20px 16px;
+    border-radius:14px;
+  }
+  .tl li{
+    grid-template-columns:18px minmax(0, 1fr) auto;
+    gap:10px;
+    padding:12px 0;
+  }
+  .tl b{
+    font-size:13.5px;
+  }
+  .tl small{
+    font-size:11.5px;
+  }
+  .tl time{
+    font-size:11px;
+  }
+  .mrow{
+    grid-template-columns:78px minmax(0, 1fr) 88px;
+    gap:8px;
+    font-size:12.5px;
+    padding:6px 4px;
+  }
+  .mrow b{
+    font-size:11.5px;
+  }
+
+  /* Wealth Planning mobile enhancements */
+  .calc{
+    gap:24px;
+  }
+  .ctrl{
+    gap:18px;
+  }
+  .res{
+    padding:20px 16px;
+    border-radius:14px;
+    gap:18px;
+  }
+  .res .big{
+    font-size:34px;
+  }
+  .donutw{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:16px;
+  }
+  .donutw svg{
+    width:105px;
+    height:105px;
+  }
+  .leg{
+    font-size:12.5px;
+    gap:8px;
+  }
+
+  /* Concierge form mobile enhancements */
+  .visit{
+    gap:32px;
+  }
+  .visit-perks{
+    grid-template-columns:1fr;
+    gap:8px;
+    margin-top:18px;
+  }
+  #visit form{
+    padding:22px 18px;
+    border-radius:14px;
+    gap:14px;
+  }
+  .frow{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+}
+
+@media (max-width:480px){
+  .hero-section{
+    height:58vh;
+    height:58dvh;
+    min-height:340px;
+    max-height:480px;
+  }
+  .sx-stage-bar{
+    bottom:8px;
+    left:8px;
+    right:8px;
+  }
+  .sx-btn-title{
+    font-size:9.5px;
+  }
+  .stats{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  .split-grid{
+    grid-template-columns:1fr;
+  }
+  .split-col{
+    min-height:170px;
+    border-right:none !important;
+    border-bottom:1px solid rgba(255,255,255,0.12) !important;
+  }
+  .split-col:last-child{
+    border-bottom:none !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Navnirman Realty Home">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 21h18M5 21V7l8-4v18M13 10l6 3v8M9 9v.01M9 13v.01M9 17v.01M17 15v.01M17 18v.01"/>
+        </svg>
+      </div>
+      <div class="brand-titles">
+        <span class="brand-name">NAVNIRMAN</span>
+        <span class="brand-sub">LUXURY REALTY · ESTD 2008</span>
+      </div>
+    </a>
+    <ul>
+      <li><a href="#construction-flow">Architectural Phases</a></li>
+      <li><a href="#projects">Portfolio</a></li>
+      <li><a href="#progress">Structural Telemetry</a></li>
+      <li><a href="#calculator">Wealth Planning</a></li>
+      <li><a href="#visit">Concierge Tour</a></li>
+    </ul>
+    <a class="btn btn-primary" href="#visit">Schedule Private Tour</a>
+  </div>
+</nav>
+
+<!-- =====================================================================
+     HERO SECTION: 6-SECOND EXPANSIVE CINEMATIC VIDEO (ZERO SCROLLBARS)
+     ===================================================================== -->
+<header class="hero-section" id="top">
+  
+  <!-- Video Timelapse Animation in Hero Section -->
+  <div class="sx-video-stage" aria-hidden="true">
+    <video id="hero-timelapse-video" class="hero-video" playsinline muted autoplay preload="auto" poster="./assets/stage1-land.jpg">
+      <source src="./assets/construction-timelapse.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Subtle Vignette Frame -->
+  <div class="sx-vignette" aria-hidden="true"></div>
+
+  <!-- Architectural Brand Philosophy Quote Card (Left Side - Static Common Quote) -->
+  <div class="hero-quote-card" id="hero-quote-card">
+    <div class="hero-quote-eyebrow">
+      <span>Architectural Philosophy</span>
+    </div>
+    <div class="hero-quote-text">
+      “True architectural grandeur begins where uncompromising structural engineering meets timeless aesthetic vision — crafting enduring sanctuaries from raw earth to celebrated homes.”
+    </div>
+    <div class="hero-quote-author">
+      <span>NAVNIRMAN ATELIER</span>
+      <span style="color:var(--gold);font-family:var(--f-mono);font-size:11px">MASTER ARCHITECTS · ESTD 2008</span>
+    </div>
+  </div>
+
+  <!-- ===============================================================
+       BOTTOM 4-STAGE INTERACTIVE BAR (Directly from Reference Image)
+       Includes live dynamic filling progress bar synchronized to video!
+       =============================================================== -->
+  <div class="sx-stage-bar" role="tablist" aria-label="Construction Flow Stages">
+    
+    <!-- Button 01: The Land -->
+    <button class="sx-stage-btn active" id="btn-stage-1" type="button" role="tab" aria-selected="true" onclick="goToStage(0.00)">
+      <div class="sx-btn-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+          <line x1="8" y1="2" x2="8" y2="18"/>
+          <line x1="16" y1="6" x2="16" y2="22"/>
+          <circle cx="12" cy="9" r="2.5" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="sx-btn-title">01. The Land</div>
+      <div class="sx-btn-sub">A Vision Begins</div>
+      <div class="sx-btn-bar"><i class="sx-btn-fill" id="bar-fill-1"></i></div>
+    </button>
+
+    <!-- Button 02: Foundation -->
+    <button class="sx-stage-btn" id="btn-stage-2" type="button" role="tab" aria-selected="false" onclick="goToStage(0.28)">
+      <div class="sx-btn-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="16" width="18" height="5" rx="1"/>
+          <line x1="6" y1="16" x2="6" y2="5"/>
+          <line x1="12" y1="16" x2="12" y2="3"/>
+          <line x1="18" y1="16" x2="18" y2="5"/>
+        </svg>
+      </div>
+      <div class="sx-btn-title">02. Foundation</div>
+      <div class="sx-btn-sub">Building the Base</div>
+      <div class="sx-btn-bar"><i class="sx-btn-fill" id="bar-fill-2"></i></div>
+    </button>
+
+    <!-- Button 03: Construction -->
+    <button class="sx-stage-btn" id="btn-stage-3" type="button" role="tab" aria-selected="false" onclick="goToStage(0.58)">
+      <div class="sx-btn-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 10a8 8 0 0 1 16 0H4z"/>
+          <path d="M2 10h20"/>
+          <rect x="9" y="3" width="6" height="4" rx="1"/>
+          <circle cx="12" cy="14" r="3.5"/>
+          <path d="M6 21v-1a6 6 0 0 1 12 0v1"/>
+        </svg>
+      </div>
+      <div class="sx-btn-title">03. Construction</div>
+      <div class="sx-btn-sub">Bringing Ideas to Life</div>
+      <div class="sx-btn-bar"><i class="sx-btn-fill" id="bar-fill-3"></i></div>
+    </button>
+
+    <!-- Button 04: Dream Home -->
+    <button class="sx-stage-btn" id="btn-stage-4" type="button" role="tab" aria-selected="false" onclick="goToStage(0.85)">
+      <div class="sx-btn-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 10.5L12 3l9 7.5v9.5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9.5z"/>
+          <path d="M12 9v7m-3-4.5c0 3 3 4.5 3 4.5s3-1.5 3-4.5V11l-3-1.5L9 11v1.5z"/>
+        </svg>
+      </div>
+      <div class="sx-btn-title">04. Dream Home</div>
+      <div class="sx-btn-sub">A Better Tomorrow</div>
+      <div class="sx-btn-bar"><i class="sx-btn-fill" id="bar-fill-4"></i></div>
+    </button>
+
+  </div>
+
+</header>
+
+<!-- =====================================================================
+     SECTION 2: DEDICATED 4-STAGE ARCHITECTURAL GALLERY
+     ===================================================================== -->
+<section class="split-hero-section" id="construction-flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Architectural Progression</span>
+      <h2>From Plotted Horizon to Habitable Art.</h2>
+      <p>Click on any milestone below to jump directly into that phase. Observe the meticulous structural journey from raw virgin soil to a grand completed residential community.</p>
+    </div>
+
+    <!-- The 4-Slice Panoramic Showcase Banner with Actual Photos -->
+    <div class="split-banner-container">
+      
+      <!-- Fixed Divider Arrows on the 25%, 50%, 75% Seams (Never Clipped) -->
+      <div class="split-divider-arrow" style="left:25%" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
+      <div class="split-divider-arrow" style="left:50%" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
+      <div class="split-divider-arrow" style="left:75%" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
+
+      <div class="split-grid">
+
+        <!-- Column 01: The Land -->
+        <div class="split-col" onclick="goToStage(0.00)" role="button" tabindex="0">
+          <div class="split-col-bg" style="background-image:url('./assets/stage1-land.jpg');"></div>
+          <div class="split-col-scrim"></div>
+          <div class="split-col-content">
+            <span class="split-col-tag">Milestone 01</span>
+            <div class="split-col-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+                <circle cx="12" cy="9" r="2.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="split-col-title">01. The Land</div>
+            <div class="split-col-sub">A Vision Begins</div>
+            <div class="split-col-bar"></div>
+          </div>
+        </div>
+
+        <!-- Column 02: Foundation -->
+        <div class="split-col" onclick="goToStage(0.28)" role="button" tabindex="0">
+          <div class="split-col-bg" style="background-image:url('./assets/stage2-foundation.jpg');"></div>
+          <div class="split-col-scrim"></div>
+          <div class="split-col-content">
+            <span class="split-col-tag">Milestone 02</span>
+            <div class="split-col-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="16" width="18" height="5" rx="1"/>
+                <line x1="6" y1="16" x2="6" y2="5"/>
+                <line x1="12" y1="16" x2="12" y2="3"/>
+                <line x1="18" y1="16" x2="18" y2="5"/>
+              </svg>
+            </div>
+            <div class="split-col-title">02. Foundation</div>
+            <div class="split-col-sub">Building the Base</div>
+            <div class="split-col-bar"></div>
+          </div>
+        </div>
+
+        <!-- Column 03: Construction -->
+        <div class="split-col" onclick="goToStage(0.58)" role="button" tabindex="0">
+          <div class="split-col-bg" style="background-image:url('./assets/stage3-construction.jpg');"></div>
+          <div class="split-col-scrim"></div>
+          <div class="split-col-content">
+            <span class="split-col-tag">Milestone 03</span>
+            <div class="split-col-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 10a8 8 0 0 1 16 0H4z"/>
+                <path d="M2 10h20"/>
+                <circle cx="12" cy="14" r="3.5"/>
+                <path d="M6 21v-1a6 6 0 0 1 12 0v1"/>
+              </svg>
+            </div>
+            <div class="split-col-title">03. Construction</div>
+            <div class="split-col-sub">Bringing Ideas to Life</div>
+            <div class="split-col-bar"></div>
+          </div>
+        </div>
+
+        <!-- Column 04: Dream Home -->
+        <div class="split-col" onclick="goToStage(0.85)" role="button" tabindex="0">
+          <div class="split-col-bg" style="background-image:url('./assets/stage4-dreamhome.jpg');"></div>
+          <div class="split-col-scrim"></div>
+          <div class="split-col-content">
+            <span class="split-col-tag">Milestone 04</span>
+            <div class="split-col-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 10.5L12 3l9 7.5v9.5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9.5z"/>
+                <path d="M12 9v7m-3-4.5c0 3 3 4.5 3 4.5s3-1.5 3-4.5V11l-3-1.5L9 11v1.5z"/>
+              </svg>
+            </div>
+            <div class="split-col-title">04. Dream Home</div>
+            <div class="split-col-sub">A Better Tomorrow</div>
+            <div class="split-col-bar"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION 3: HERITAGE & ARCHITECTURAL STATS BAND
+     ===================================================================== -->
+<section class="band">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stats-box">
+        <b>18 Years</b>
+        <span>Unbroken heritage of structural precision and transparent delivery since 2008.</span>
+      </div>
+      <div class="stats-box">
+        <b>42 Enclaves</b>
+        <span>RERA-certified residential communities completed strictly within committed timelines.</span>
+      </div>
+      <div class="stats-box">
+        <b>12,500+</b>
+        <span>High-net-worth families currently residing in their handcrafted dream homes.</span>
+      </div>
+      <div class="stats-box">
+        <b>9.8M Sq. Ft.</b>
+        <span>Grade-A residential footprint built to seismic-resistant IS 456 standards.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION 5: CURATED RESIDENTIAL PORTFOLIO (Interactive Scroll Animations)
+     ===================================================================== -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Curated Portfolio</span>
+      <h2>RERA-Registered Enclaves Across 4 Metros.</h2>
+      <p>Transparent documentation, verified land titles, and live structural milestones. Filter by city to examine floor configurations and possession schedules.</p>
+    </div>
+    <div class="chips" id="pchips" role="group" aria-label="Filter projects by city"></div>
+    <div class="pgrid" id="pgrid"></div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION 6: STRUCTURAL TELEMETRY (Interactive Live Cascades & Radar Pulse)
+     ===================================================================== -->
+<section class="band" id="progress">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Structural Telemetry</span>
+      <h2>Navnirman Skyline · Construction Status.</h2>
+      <p>The landmark 3-tower community highlighted in our hero timelapse. Real-time engineering metrics, casting logs, and auditor certifications.</p>
+    </div>
+    <div class="two">
+      <div class="panel">
+        <h3 style="margin-bottom:20px;font-size:22px;color:#FFFFFF">Milestone Schedule & Sanctions</h3>
+        <ol class="tl" id="tl"></ol>
+      </div>
+      <div>
+        <ul class="upd" id="upd"></ul>
+        <div class="panel" id="twr-panel">
+          <h3 style="margin-bottom:16px;font-size:22px;color:#FFFFFF">Tower-Wise Structural Work</h3>
+          <div id="twr"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION 7: CAPITAL & MORTGAGE PLANNING (Interactive Animated Donut)
+     ===================================================================== -->
+<section class="band" id="calculator">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Wealth Advisory</span>
+      <h2>Calculate Your Capital Outlay & EMI.</h2>
+      <p>Plan your luxury asset acquisition with full transparency. Standard Indian banking amortizations with real-time principal and interest breakdown.</p>
+    </div>
+    <div class="calc" id="calc-container">
+      <div class="ctrl">
+        <label for="c-price"><span>Property Acquisition Value <output id="o-price"></output></span><input id="c-price" type="range" min="2500000" max="50000000" step="100000" value="7800000"></label>
+        <label for="c-down"><span>Initial Capital Down Payment <output id="o-down"></output></span><input id="c-down" type="range" min="10" max="60" step="5" value="20"></label>
+        <label for="c-rate"><span>Bank Lending Rate <output id="o-rate"></output></span><input id="c-rate" type="range" min="6.5" max="12" step="0.1" value="8.5"></label>
+        <label for="c-yrs"><span>Loan Amortization Tenure <output id="o-yrs"></output></span><input id="c-yrs" type="range" min="5" max="30" step="1" value="20"></label>
+      </div>
+      <div class="res" aria-live="polite">
+        <div>
+          <div style="color:var(--muted);font-size:13.5px;font-family:var(--f-num);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Estimated Monthly Outflow (EMI)</div>
+          <div class="big" id="r-emi">₹0</div>
+        </div>
+        <div class="donutw">
+          <svg viewBox="0 0 42 42" aria-hidden="true">
+            <circle cx="21" cy="21" r="15.915" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="5"/>
+            <circle id="r-ring" cx="21" cy="21" r="15.915" fill="none" stroke="var(--gold)" stroke-width="5" stroke-dasharray="0 100" transform="rotate(-90 21 21)"/>
+          </svg>
+          <div class="leg">
+            <div><i style="background:var(--gold)"></i>Principal Borrowing: <b id="r-loan"></b></div>
+            <div><i style="background:rgba(212,175,55,0.3)"></i>Total Interest Payable: <b id="r-int"></b></div>
+            <div>Direct Equity Invested: <b id="r-dp"></b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION: PRIVATE CONCIERGE & VIP SITE VISIT
+     ===================================================================== -->
+<section id="visit">
+  <div class="wrap visit">
+    <div class="visit-info">
+      <span class="eyebrow">Private Concierge</span>
+      <h2>Inspect The Craftsmanship In Person.</h2>
+      <p style="color:var(--ink-secondary);font-size:17px;line-height:1.7;margin-top:14px">
+        Walk through our finished model residence, touch the acoustic Schuco fenestrations, inspect the seismic-grade Fe 550 structural columns, and consult directly with our chief project architects.
+      </p>
+      <p style="color:var(--muted);font-size:14.5px;line-height:1.6;margin-top:10px">
+        Complimentary luxury chauffeured transit arranged from Pune Airport or your residence upon private request.
+      </p>
+      <div class="visit-perks">
+        <div class="visit-perk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>One-on-One Lead Architect Consultation</span>
+        </div>
+        <div class="visit-perk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span>Pre-Approved Bank Valuation Dossier</span>
+        </div>
+        <div class="visit-perk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Direct Physical Site & Superstructure Access</span>
+        </div>
+        <div class="visit-perk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          <span>Complimentary Private Chauffeur</span>
+        </div>
+      </div>
+    </div>
+    <form id="vform" novalidate>
+      <h3 style="font-size:20px;font-family:var(--f-body);font-weight:600;color:#FFFFFF;margin-bottom:4px">Schedule Private Walkthrough</h3>
+      <label class="f" for="v-name">Full Name<input id="v-name" type="text" placeholder="e.g. Vikramaditya Joshi" required></label>
+      <label class="f" for="v-phone">Direct Mobile Number<input id="v-phone" type="tel" maxlength="10" placeholder="10-digit mobile number" required></label>
+      <label class="f" for="v-project">Select Enclave<select id="v-project"></select></label>
+      <div class="frow">
+        <label class="f" for="v-date">Preferred Date<input id="v-date" type="date"></label>
+        <label class="f" for="v-slot">Preferred Preview Slot
+          <select id="v-slot">
+            <option>10:00 AM - 12:00 PM (Morning Private)</option>
+            <option>12:00 PM - 02:00 PM (Midday Executive)</option>
+            <option>02:00 PM - 04:00 PM (Afternoon VIP)</option>
+            <option>04:00 PM - 06:00 PM (Sunset Walkthrough)</option>
+          </select>
+        </label>
+      </div>
+      <button class="btn btn-primary" type="submit" style="margin-top:8px">Reserve Private Concierge Tour</button>
+      <p class="msg" id="vmsg" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+      <div style="font-family:var(--f-display);font-size:20px;font-weight:700;color:#FFFFFF;letter-spacing:0.04em">
+        NAVNIRMAN REALTY PRIVATE LIMITED
+      </div>
+      <div style="font-family:var(--f-num);font-size:12px;font-weight:700;color:var(--gold)">
+        ISO 9001:2015 CERTIFIED ARCHITECTURAL QUALITY
+      </div>
+    </div>
+    <span>Corporate Headquarters: Sai Chambers, Baner High Street, Pune 411045, Maharashtra · Tel: +91 (20) 6700-8800</span>
+    <span style="color:var(--muted);font-size:12.5px;line-height:1.5">
+      MahaRERA Registration No: P52100048217 | Available on the website maharera.mahaonline.gov.in under registered projects. All renders and animation sequences depict artistic impressions and actual on-site structural photography.
+    </span>
+  </div>
+</footer>
+
+<!-- =====================================================================
+     JAVASCRIPT SIMULATION CONTROLLER
+     - 6-Second Hero Animation Rate (duration / 6.0)
+     - Interactive Scroll Animations for Portfolio, Telemetry, and Wealth Planning
+     ===================================================================== -->
+<script>
+(function(){
+  var heroVideo = document.getElementById('hero-timelapse-video');
+
+  var btn1 = document.getElementById('btn-stage-1');
+  var btn2 = document.getElementById('btn-stage-2');
+  var btn3 = document.getElementById('btn-stage-3');
+  var btn4 = document.getElementById('btn-stage-4');
+
+  var barFill1 = document.getElementById('bar-fill-1');
+  var barFill2 = document.getElementById('bar-fill-2');
+  var barFill3 = document.getElementById('bar-fill-3');
+  var barFill4 = document.getElementById('bar-fill-4');
+
+  function clamp01(v){ return v<0 ? 0 : v>1 ? 1 : v; }
+
+  // Jump to specific milestone on button click
+  window.goToStage = function(targetProgress){
+    if(heroVideo && heroVideo.duration){
+      hasCompletedHero = false;
+      heroVideo.currentTime = clamp01(targetProgress) * heroVideo.duration;
+      if(heroVideo.paused){
+        heroVideo.play().catch(function(){});
+      }
+    }
+  };
+
+  function setStageButton(btn, active){
+    if(!btn) return;
+    if(active){
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+    } else {
+      btn.classList.remove('active');
+      btn.setAttribute('aria-selected', 'false');
+    }
+  }
+
+  /* -------------------------------------------------------------
+     6-SECOND HERO ANIMATION RATE & PLAYBACK
+     (Paces 5-second source smoothly over exactly 6 seconds)
+     ------------------------------------------------------------- */
+  var hasCompletedHero = false;
+  var wasOutOfView = false;
+
+  function applySixSecondSpeed(){
+    if(heroVideo && heroVideo.duration && !isNaN(heroVideo.duration)){
+      heroVideo.playbackRate = heroVideo.duration / 6.0;
+    } else if(heroVideo){
+      heroVideo.playbackRate = 5.0 / 6.0;
+    }
+  }
+
+  if(heroVideo){
+    heroVideo.muted = true;
+    heroVideo.removeAttribute('loop');
+    heroVideo.addEventListener('loadedmetadata', applySixSecondSpeed);
+    applySixSecondSpeed();
+    heroVideo.play().catch(function(){});
+
+    // When video finishes, hold on Stage 4 (Dream Home)
+    heroVideo.addEventListener('ended', function(){
+      hasCompletedHero = true;
+      heroVideo.pause();
+      setStageButton(btn1, false);
+      setStageButton(btn2, false);
+      setStageButton(btn3, false);
+      setStageButton(btn4, true);
+      if(barFill1) barFill1.style.width = '100%';
+      if(barFill2) barFill2.style.width = '100%';
+      if(barFill3) barFill3.style.width = '100%';
+      if(barFill4) barFill4.style.width = '100%';
+    });
+
+    // Sync button states & dynamic progress fills (common quote remains static)
+    heroVideo.addEventListener('timeupdate', function(){
+      if(!heroVideo.duration) return;
+      var p = heroVideo.currentTime / heroVideo.duration;
+
+      // When reaching near the end
+      if(p >= 0.985){
+        hasCompletedHero = true;
+        heroVideo.pause();
+        setStageButton(btn1, false);
+        setStageButton(btn2, false);
+        setStageButton(btn3, false);
+        setStageButton(btn4, true);
+        if(barFill1) barFill1.style.width = '100%';
+        if(barFill2) barFill2.style.width = '100%';
+        if(barFill3) barFill3.style.width = '100%';
+        if(barFill4) barFill4.style.width = '100%';
+        return;
+      }
+
+      var stage = p < 0.25 ? 1 : p < 0.50 ? 2 : p < 0.75 ? 3 : 4;
+
+      setStageButton(btn1, stage === 1);
+      setStageButton(btn2, stage === 2);
+      setStageButton(btn3, stage === 3);
+      setStageButton(btn4, stage === 4);
+
+      // Fill progress bars dynamically as video progresses through each stage
+      if(barFill1){
+        var f1 = p < 0.25 ? (p / 0.25) * 100 : 100;
+        barFill1.style.width = f1.toFixed(1) + '%';
+      }
+      if(barFill2){
+        var f2 = p < 0.25 ? 0 : p < 0.50 ? ((p - 0.25) / 0.25) * 100 : 100;
+        barFill2.style.width = f2.toFixed(1) + '%';
+      }
+      if(barFill3){
+        var f3 = p < 0.50 ? 0 : p < 0.75 ? ((p - 0.50) / 0.25) * 100 : 100;
+        barFill3.style.width = f3.toFixed(1) + '%';
+      }
+      if(barFill4){
+        var f4 = p < 0.75 ? 0 : ((p - 0.75) / 0.25) * 100;
+        barFill4.style.width = f4.toFixed(1) + '%';
+      }
+    });
+
+    // Observer: Rerun when user returns to Hero Section!
+    if('IntersectionObserver' in window){
+      var heroSection = document.getElementById('top');
+      var heroObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            if(wasOutOfView && hasCompletedHero){
+              hasCompletedHero = false;
+              heroVideo.currentTime = 0;
+              applySixSecondSpeed();
+              heroVideo.play().catch(function(){});
+            } else if(!hasCompletedHero && heroVideo.paused && heroVideo.currentTime < (heroVideo.duration || 5) - 0.1){
+              applySixSecondSpeed();
+              heroVideo.play().catch(function(){});
+            }
+            wasOutOfView = false;
+          } else {
+            wasOutOfView = true;
+          }
+        });
+      }, { threshold: 0.2 });
+
+      if(heroSection) heroObserver.observe(heroSection);
+    }
+  }
+})();
+
+/* -----------------------------------------------------------------
+   PROJECTS, TIMELINE, EMI CALCULATOR & INTERACTIVE SCROLL ANIMATOR
+   ----------------------------------------------------------------- */
+(function(){
+  function $(id){ return document.getElementById(id); }
+  var inr = function(n){ return '₹' + Math.round(n).toLocaleString('en-IN'); };
+  function short(n){ return n>=1e7 ? '₹'+(n/1e7).toFixed(2)+' Cr' : '₹'+(n/1e5).toFixed(0)+' L'; }
+
+  var PROJ = [
+    {name:'Navnirman Skyline', loc:'Hinjewadi Phase 2, Pune', city:'Pune', cfg:'2 & 3 BHK', area:'645 to 1,120 sq ft', price:'₹78 L onwards', status:'Under Construction', cls:'uc', pr:65, poss:'Dec 2028', rera:'P52100048217'},
+    {name:'Navnirman Baner Crest', loc:'Baner High Street, Pune', city:'Pune', cfg:'3 & 4 BHK', area:'1,220 to 1,980 sq ft', price:'₹1.85 Cr onwards', status:'New Launch', cls:'new', pr:15, poss:'Mar 2030', rera:'P52100051902'},
+    {name:'Navnirman Greens', loc:'Ghodbunder Road, Thane', city:'Mumbai MMR', cfg:'2 & 3 BHK', area:'710 to 1,180 sq ft', price:'₹1.15 Cr onwards', status:'Under Construction', cls:'uc', pr:42, poss:'Jun 2029', rera:'P51700039120'},
+    {name:'Navnirman Mulund Heights', loc:'Mulund West, Mumbai', city:'Mumbai MMR', cfg:'3 & 4 BHK Duplex', area:'1,490 to 2,410 sq ft', price:'₹2.75 Cr onwards', status:'Under Construction', cls:'uc', pr:58, poss:'Sep 2028', rera:'P51800042811'},
+    {name:'Navnirman Sabarmati View', loc:'Riverfront Promenade, Ahmedabad', city:'Ahmedabad', cfg:'3 & 4 BHK', area:'1,380 to 2,150 sq ft', price:'₹1.45 Cr onwards', status:'Ready to Move', cls:'ready', pr:100, poss:'Ready Now', rera:'PR/GJ/AHM/082/2023'},
+    {name:'Navnirman Whitefield Park', loc:'ITPL Main Road, Bengaluru', city:'Bengaluru', cfg:'2 & 3 BHK', area:'1,040 to 1,560 sq ft', price:'₹1.22 Cr onwards', status:'Under Construction', cls:'uc', pr:74, poss:'Mar 2028', rera:'PRM/KA/RERA/1251/446'}
+  ];
+
+  var currentCity = 'All';
+
+  function drawChips(){
+    var cities = ['All', 'Pune', 'Mumbai MMR', 'Bengaluru', 'Ahmedabad'];
+    $('pchips').innerHTML = cities.map(function(c){
+      return '<button class="chip" type="button" aria-pressed="'+(c === currentCity)+'" onclick="filterProjects(\''+c+'\')">'+c+'</button>';
+    }).join('');
+  }
+
+  window.filterProjects = function(c){
+    currentCity = c;
+    drawChips();
+    drawProjects();
+    animatePortfolio(true);
+  };
+
+  function drawProjects(){
+    var list = currentCity === 'All' ? PROJ : PROJ.filter(function(p){ return p.city === currentCity; });
+    $('pgrid').innerHTML = list.map(function(p, idx){
+      return '<article class="pcard" style="transition-delay:' + (idx * 90) + 'ms">' +
+        '<div class="pimg">' +
+          '<div class="pimg-bg" style="background-image:url(\'./assets/stage4-dreamhome.jpg\');"></div>' +
+          '<span class="pill '+p.cls+'">'+p.status+'</span>' +
+        '</div>' +
+        '<div class="pbody">' +
+          '<div>' +
+            '<h3>'+p.name+'</h3>' +
+            '<div class="ploc">'+p.loc+'</div>' +
+          '</div>' +
+          '<div class="pfacts">' +
+            '<div><small>Config</small><b>'+p.cfg+'</b></div>' +
+            '<div><small>Carpet Area</small><b>'+p.area+'</b></div>' +
+            '<div><small>Possession</small><b>'+p.poss+'</b></div>' +
+            '<div><small>MahaRERA</small><b>'+p.rera.slice(0,12)+'...</b></div>' +
+          '</div>' +
+          '<div class="p-twr-row">' +
+            '<span>Structural Telemetry</span>' +
+            '<div class="tr"><i class="dynamic-bar-p" data-target="'+p.pr+'" style="width:0%"></i></div>' +
+            '<b class="prow-val" data-target="'+p.pr+'">0%</b>' +
+          '</div>' +
+          '<div class="pfoot">' +
+            '<span class="pprice">'+p.price+'</span>' +
+            '<a class="btn btn-ghost" style="padding:8px 16px;font-size:13px" href="#visit">Request Dossier</a>' +
+          '</div>' +
+        '</div>' +
+      '</article>';
+    }).join('');
+
+    attachCardHoverEvents();
+  }
+  drawChips();
+  drawProjects();
+
+  $('v-project').innerHTML = PROJ.map(function(p){ return '<option>'+p.name+' ('+p.city+')</option>'; }).join('');
+
+  var TL = [
+    ['Land Acquired & Clear Title Confirmed', 'Mar 2024', 2],
+    ['MahaRERA Registration & Sanctions', 'Aug 2024', 2],
+    ['Deep Excavation & Raft Foundation Cast', 'Dec 2024', 2],
+    ['Structure: Tower B (9 Floors Completed)', 'Jul 2025', 2],
+    ['Structure: Tower A (14 Floors Cast)', 'Mar 2026', 2],
+    ['Structure: Tower C (11 Floors Cast)', 'Sep 2026', 2],
+    ['Internal AAC Blockwork & Concealed Plumbing', 'Dec 2026', 1],
+    ['Schuco Acoustic Glazing & Facade Terraces', 'Jun 2027', 0],
+    ['Podium Landscaping, Club & Motor Court', 'Jan 2028', 0],
+    ['Possession & Formal Key Handover', 'Dec 2028', 0]
+  ];
+  $('tl').innerHTML = TL.map(function(t, idx){
+    var c = t[2] === 2 ? 'done' : t[2] === 1 ? 'now' : '';
+    return '<li style="transition-delay:' + (idx * 70) + 'ms"><span class="dot '+c+'"></span><div><b>'+t[0]+'</b><small>'+(t[2]===2?'Certified Complete':t[2]===1?'Active On-Site Work':'Upcoming Engineering Milestone')+'</small></div><time>'+t[1]+'</time></li>';
+  }).join('');
+
+  $('upd').innerHTML = [
+    ['18 Nov 2026', 'Tower A: 9th-floor AAC masonry and laser-aligned electrical conduit routing underway.'],
+    ['10 Nov 2026', 'Tower C: Structural roof slab completion certified by Bureau Veritas third-party structural audit.'],
+    ['02 Nov 2026', 'Underground rainwater harvesting reservoirs and fire mitigation hydraulic pumps commissioned.']
+  ].map(function(u, idx){
+    return '<li style="transition-delay:' + (idx * 120) + 'ms"><time>'+u[0]+'</time>'+u[1]+'</li>';
+  }).join('');
+
+  var TWS = [
+    ['Tower A · 14 Floors Superstructure', 14, [14, 9, 5]],
+    ['Tower B · 9 Floors Superstructure', 9, [9, 9, 8]],
+    ['Tower C · 11 Floors Superstructure', 11, [11, 7, 2]]
+  ];
+  $('twr').innerHTML = TWS.map(function(t, tIdx){
+    return '<div style="margin-bottom:18px"><h4 style="font-size:16px;margin-bottom:8px;color:#FFFFFF;font-family:var(--f-body);font-weight:600">'+t[0]+'</h4>' +
+      ['Slabs Cast', 'Masonry', 'Plastering'].map(function(lbl, i){
+        var v = t[2][i];
+        var pct = Math.round(v/t[1]*100);
+        return '<div class="mrow"><span>'+lbl+'</span><div class="tr"><i class="dynamic-bar-twr" data-target="'+pct+'" style="width:0%"></i></div><b class="twr-val" data-val="'+v+'" data-tot="'+t[1]+'" data-pct="'+pct+'">0/'+t[1]+' (0%)</b></div>';
+      }).join('') +
+    '</div>';
+  }).join('');
+
+  attachTowerHoverEvents();
+
+  /* -------------------------------------------------------------
+     DEDICATED SCROLL & HOVER ANIMATION CONTROLLERS
+     - Automatic fill on first scroll view
+     - Instant rerun when cursor moves/hovers over that element
+     ------------------------------------------------------------- */
+  function animateSingleCard(card){
+    var bar = card.querySelector('.dynamic-bar-p');
+    var valSpan = card.querySelector('.prow-val');
+    if(!bar || !valSpan) return;
+    var target = bar.getAttribute('data-target') || '0';
+    var targetNum = parseInt(target, 10);
+
+    card.classList.add('in-view');
+    if(card._animTimer) cancelAnimationFrame(card._animTimer);
+
+    // 1. Immediately reset with zero yellow color & no transition
+    bar.style.transition = 'none';
+    bar.style.width = '0%';
+    bar.classList.remove('active-fill');
+    valSpan.textContent = '0%';
+    void bar.offsetWidth;
+
+    // 2. Animate to target
+    requestAnimationFrame(function(){
+      bar.classList.add('active-fill');
+      bar.style.transition = 'width 1.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease';
+      bar.style.width = target + '%';
+
+      var startTime = null;
+      var duration = 1250;
+      function step(ts){
+        if(!startTime) startTime = ts;
+        var p = Math.min((ts - startTime) / duration, 1);
+        var ease = 1 - Math.pow(1 - p, 3);
+        valSpan.textContent = Math.round(ease * targetNum) + '%';
+        if(p < 1){
+          card._animTimer = requestAnimationFrame(step);
+        } else {
+          valSpan.textContent = targetNum + '%';
+          card._animTimer = null;
+        }
+      }
+      card._animTimer = requestAnimationFrame(step);
+    });
+  }
+
+  var cardObserver = null;
+  if('IntersectionObserver' in window){
+    cardObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          if(!entry.target._hasAnimated){
+            entry.target._hasAnimated = true;
+            animateSingleCard(entry.target);
+          }
+        } else {
+          var rect = entry.boundingClientRect;
+          if(rect.top > window.innerHeight || rect.bottom < 0){
+            entry.target._hasAnimated = false;
+          }
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+  }
+
+  function attachCardHoverEvents(){
+    document.querySelectorAll('.pcard').forEach(function(card){
+      // Hover for desktop
+      card.onmouseenter = function(){
+        card._hasAnimated = true;
+        animateSingleCard(card);
+      };
+      // Tap/click for mobile
+      card.onclick = function(){
+        card._hasAnimated = true;
+        animateSingleCard(card);
+      };
+      var pRow = card.querySelector('.p-twr-row');
+      if(pRow){
+        pRow.onmouseenter = function(e){
+          e.stopPropagation();
+          card._hasAnimated = true;
+          animateSingleCard(card);
+        };
+        pRow.onclick = function(e){
+          e.stopPropagation();
+          card._hasAnimated = true;
+          animateSingleCard(card);
+        };
+      }
+      if(cardObserver){
+        cardObserver.observe(card);
+      }
+    });
+  }
+
+  var projAnimated = false;
+  function animatePortfolio(force){
+    if(projAnimated && !force) return;
+    projAnimated = true;
+    var sec = $('projects');
+    if(!sec) return;
+
+    var cards = sec.querySelectorAll('.pcard');
+    cards.forEach(function(c, i){
+      setTimeout(function(){ c.classList.add('in-view'); }, i * 80);
+    });
+
+    var bars = sec.querySelectorAll('.dynamic-bar-p');
+    var vals = sec.querySelectorAll('.prow-val');
+
+    // 1. Immediately reset bars to 0% with no transition and zero yellow color
+    bars.forEach(function(b){
+      b.style.transition = 'none';
+      b.style.width = '0%';
+      b.classList.remove('active-fill');
+    });
+    vals.forEach(function(v){
+      v.textContent = '0%';
+    });
+
+    // 2. Force DOM reflow so browser commits the 0% clean state
+    void sec.offsetWidth;
+
+    // 3. Trigger smooth CSS width fill and JS count-up in the next animation frame
+    requestAnimationFrame(function(){
+      bars.forEach(function(b, idx){
+        b.classList.add('active-fill');
+        b.style.transition = 'width 1.5s cubic-bezier(0.16, 1, 0.3, 1) ' + (idx * 60) + 'ms, opacity 0.35s ease ' + (idx * 60) + 'ms';
+        var target = b.getAttribute('data-target') || '0';
+        b.style.width = target + '%';
+      });
+
+      vals.forEach(function(valSpan, idx){
+        var targetNum = parseInt(valSpan.getAttribute('data-target') || '0', 10);
+        var startTime = null;
+        var duration = 1500;
+        var delay = idx * 60;
+        function step(ts){
+          if(!startTime) startTime = ts;
+          var elapsed = ts - startTime - delay;
+          if(elapsed < 0){
+            requestAnimationFrame(step);
+            return;
+          }
+          var p = Math.min(elapsed / duration, 1);
+          var ease = 1 - Math.pow(1 - p, 3);
+          var cur = Math.round(ease * targetNum);
+          valSpan.textContent = cur + '%';
+          if(p < 1){
+            requestAnimationFrame(step);
+          } else {
+            valSpan.textContent = targetNum + '%';
+          }
+        }
+        requestAnimationFrame(step);
+      });
+    });
+  }
+
+  // Animate milestones and updates in Structural Telemetry
+  function animateTelemetryMilestones(){
+    var sec = $('progress');
+    if(!sec) return;
+    sec.querySelectorAll('.tl li, .upd li').forEach(function(el){
+      el.classList.add('in-view');
+    });
+  }
+
+  // Single tower row animation on hover
+  function animateSingleTowerRow(row){
+    var bar = row.querySelector('.dynamic-bar-twr');
+    var valElem = row.querySelector('.twr-val');
+    if(!bar || !valElem) return;
+    var target = bar.getAttribute('data-target') || '0';
+    var targetPct = parseInt(target, 10);
+    var targetVal = parseInt(valElem.getAttribute('data-val') || '0', 10);
+    var tot = parseInt(valElem.getAttribute('data-tot') || '1', 10);
+
+    if(row._animTimer) cancelAnimationFrame(row._animTimer);
+
+    // 1. Reset
+    bar.style.transition = 'none';
+    bar.style.width = '0%';
+    bar.classList.remove('active-fill');
+    valElem.textContent = '0/' + tot + ' (0%)';
+    void bar.offsetWidth;
+
+    // 2. Animate
+    requestAnimationFrame(function(){
+      bar.classList.add('active-fill');
+      bar.style.transition = 'width 1.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease';
+      bar.style.width = target + '%';
+
+      var startTime = null;
+      var duration = 1350;
+      function step(ts){
+        if(!startTime) startTime = ts;
+        var p = Math.min((ts - startTime) / duration, 1);
+        var ease = 1 - Math.pow(1 - p, 3);
+        var curVal = Math.round(ease * targetVal);
+        var curPct = Math.round(ease * targetPct);
+        valElem.textContent = curVal + '/' + tot + ' (' + curPct + '%)';
+        if(p < 1){
+          row._animTimer = requestAnimationFrame(step);
+        } else {
+          valElem.textContent = targetVal + '/' + tot + ' (' + targetPct + '%)';
+        }
+      }
+      row._animTimer = requestAnimationFrame(step);
+    });
+  }
+
+  var rowObserver = null;
+  if('IntersectionObserver' in window){
+    rowObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          if(!entry.target._hasAnimated){
+            entry.target._hasAnimated = true;
+            animateSingleTowerRow(entry.target);
+          }
+        } else {
+          var rect = entry.boundingClientRect;
+          if(rect.top > window.innerHeight || rect.bottom < 0){
+            entry.target._hasAnimated = false;
+          }
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -15px 0px' });
+  }
+
+  function attachTowerHoverEvents(){
+    document.querySelectorAll('.mrow').forEach(function(row){
+      // Hover for desktop
+      row.onmouseenter = function(){
+        row._hasAnimated = true;
+        animateSingleTowerRow(row);
+      };
+      // Tap / touch for mobile
+      row.onclick = function(){
+        row._hasAnimated = true;
+        animateSingleTowerRow(row);
+      };
+      if(rowObserver){
+        rowObserver.observe(row);
+      }
+    });
+  }
+
+  // Dedicated Animator for Tower-Wise Structural Work progress bars & numbers
+  var twrAnimated = false;
+  function animateTelemetryTowers(force){
+    if(twrAnimated && !force) return;
+    twrAnimated = true;
+    var twrContainer = $('twr');
+    if(!twrContainer) return;
+
+    var twrBars = twrContainer.querySelectorAll('.dynamic-bar-twr');
+    var twrVals = twrContainer.querySelectorAll('.twr-val');
+
+    // 1. Immediately reset bars to 0% with no transition and zero yellow color
+    twrBars.forEach(function(b){
+      b.style.transition = 'none';
+      b.style.width = '0%';
+      b.classList.remove('active-fill');
+    });
+    twrVals.forEach(function(v){
+      var tot = v.getAttribute('data-tot') || '1';
+      v.textContent = '0/' + tot + ' (0%)';
+    });
+
+    // 2. Force DOM reflow so browser commits the 0% state
+    void twrContainer.offsetWidth;
+
+    // 3. Trigger smooth CSS width fill and JS count-up
+    requestAnimationFrame(function(){
+      twrBars.forEach(function(b, idx){
+        b.classList.add('active-fill');
+        b.style.transition = 'width 1.6s cubic-bezier(0.16, 1, 0.3, 1) ' + (idx * 70) + 'ms, opacity 0.35s ease ' + (idx * 70) + 'ms';
+        var target = b.getAttribute('data-target') || '0';
+        b.style.width = target + '%';
+      });
+
+      twrVals.forEach(function(valElem, idx){
+        var targetVal = parseInt(valElem.getAttribute('data-val') || '0', 10);
+        var tot = parseInt(valElem.getAttribute('data-tot') || '1', 10);
+        var targetPct = parseInt(valElem.getAttribute('data-pct') || '0', 10);
+        var startTime = null;
+        var duration = 1600;
+        var delay = idx * 70;
+
+        function step(ts){
+          if(!startTime) startTime = ts;
+          var elapsed = ts - startTime - delay;
+          if(elapsed < 0){
+            requestAnimationFrame(step);
+            return;
+          }
+          var p = Math.min(elapsed / duration, 1);
+          var ease = 1 - Math.pow(1 - p, 3);
+          var curVal = Math.round(ease * targetVal);
+          var curPct = Math.round(ease * targetPct);
+          valElem.textContent = curVal + '/' + tot + ' (' + curPct + '%)';
+          if(p < 1){
+            requestAnimationFrame(step);
+          } else {
+            valElem.textContent = targetVal + '/' + tot + ' (' + targetPct + '%)';
+          }
+        }
+        requestAnimationFrame(step);
+      });
+    });
+  }
+
+  // Dedicated Observers for Specific Components
+  if('IntersectionObserver' in window){
+    // 1. Portfolio Grid Observer
+    var projSec = $('projects');
+    if(projSec){
+      var projObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            animatePortfolio();
+          } else {
+            if(entry.boundingClientRect.top > window.innerHeight || entry.boundingClientRect.bottom < 0){
+              projAnimated = false;
+            }
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      projObserver.observe(projSec);
+    }
+
+    // 2. Structural Telemetry Timeline Observer
+    var progSec = $('progress');
+    if(progSec){
+      var progObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            animateTelemetryMilestones();
+          }
+        });
+      }, { threshold: 0.1 });
+      progObserver.observe(progSec);
+    }
+
+    // 3. Tower-Wise Structural Work Panel Observer (triggers right when panel is visible!)
+    var twrPanel = $('twr-panel') || $('twr');
+    if(twrPanel){
+      var twrObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            animateTelemetryTowers();
+          } else {
+            if(entry.boundingClientRect.top > window.innerHeight || entry.boundingClientRect.bottom < 0){
+              twrAnimated = false;
+            }
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+      twrObserver.observe(twrPanel);
+    }
+
+    // 4. Wealth Calculator Observer
+    var calcSec = $('calculator');
+    if(calcSec){
+      var calcObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            var cBox = $('calc-container');
+            if(cBox) cBox.classList.add('in-view');
+            calcEMI();
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      calcObserver.observe(calcSec);
+    }
+  } else {
+    animatePortfolio(true);
+    animateTelemetryMilestones();
+    animateTelemetryTowers(true);
+  }
+
+  // Robust Scroll-Listener for Mobile & Desktop Scroll Triggering
+  window.addEventListener('scroll', function(){
+    // 1. Check each individual Portfolio Card on scroll
+    document.querySelectorAll('.pcard').forEach(function(card){
+      var r = card.getBoundingClientRect();
+      var inView = (r.top < window.innerHeight - 30 && r.bottom > 30);
+      if(inView && !card._hasAnimated){
+        card._hasAnimated = true;
+        animateSingleCard(card);
+      } else if(!inView && card._hasAnimated && (r.top > window.innerHeight + 80 || r.bottom < -80)){
+        card._hasAnimated = false;
+      }
+    });
+
+    // 2. Check each individual Structural Telemetry Tower Row on scroll
+    document.querySelectorAll('.mrow').forEach(function(row){
+      var r = row.getBoundingClientRect();
+      var inView = (r.top < window.innerHeight - 25 && r.bottom > 25);
+      if(inView && !row._hasAnimated){
+        row._hasAnimated = true;
+        animateSingleTowerRow(row);
+      } else if(!inView && row._hasAnimated && (r.top > window.innerHeight + 60 || r.bottom < -60)){
+        row._hasAnimated = false;
+      }
+    });
+
+    // 3. Fallback for overall tower panel
+    if(!twrAnimated){
+      var panel = $('twr-panel') || $('twr');
+      if(panel){
+        var r = panel.getBoundingClientRect();
+        if(r.top < window.innerHeight - 50 && r.bottom > 50){
+          animateTelemetryTowers();
+        }
+      }
+    }
+  }, { passive: true });
+
+  /* -------------------------------------------------------------
+     INTERACTIVE WEALTH & CAPITAL ADVISORY (EMI CALCULATOR)
+     ------------------------------------------------------------- */
+  var prevEMI = 0;
+  function calcEMI(){
+    var P = +$('c-price').value;
+    var dp = +$('c-down').value;
+    var rate = +$('c-rate').value;
+    var yrs = +$('c-yrs').value;
+
+    var loan = P * (1 - dp/100);
+    var n = yrs * 12;
+    var r = rate / 12 / 100;
+    var emi = loan * r * Math.pow(1+r, n) / (Math.pow(1+r, n) - 1);
+    var total = emi * n;
+    var intr = total - loan;
+
+    $('o-price').textContent = short(P);
+    $('o-down').textContent = dp + '% (' + short(P * dp / 100) + ')';
+    $('o-rate').textContent = rate.toFixed(1) + '%';
+    $('o-yrs').textContent = yrs + ' Years';
+
+    $('r-loan').textContent = inr(loan);
+    $('r-int').textContent = inr(intr);
+    $('r-dp').textContent = inr(P * dp / 100);
+
+    // Dynamic Donut Ring SVG Animation
+    var ringDash = (loan / total * 100).toFixed(2);
+    var ringElem = $('r-ring');
+    if(ringElem){
+      ringElem.setAttribute('stroke-dasharray', ringDash + ' ' + (100 - ringDash));
+    }
+
+    // Dynamic Counting Animation for EMI Value
+    var targetEMI = Math.round(emi);
+    var emiDisplay = $('r-emi');
+    if(emiDisplay){
+      emiDisplay.textContent = inr(targetEMI) + ' / mo';
+    }
+  }
+
+  ['c-price', 'c-down', 'c-rate', 'c-yrs'].forEach(function(id){
+    $(id).addEventListener('input', calcEMI);
+  });
+  calcEMI();
+
+  $('vform').addEventListener('submit', function(e){
+    e.preventDefault();
+    var msg = $('vmsg');
+    var name = $('v-name').value.trim();
+    var phone = $('v-phone').value.trim();
+
+    if(name.length < 2){
+      msg.style.color = '#F59E0B';
+      msg.textContent = 'Please enter your full name.';
+      return;
+    }
+    if(!/^[6-9]\d{9}$/.test(phone)){
+      msg.style.color = '#F59E0B';
+      msg.textContent = 'Please provide a valid 10-digit Indian mobile number.';
+      return;
+    }
+    msg.style.color = '#34D399';
+    msg.textContent = 'Thank you, ' + name.split(' ')[0] + '. Your private walkthrough for ' + $('v-project').value + ' is reserved. Our relationship director will connect with you within 2 business hours.';
+  });
+})();
+</script>
+
+</body>
+</html>
